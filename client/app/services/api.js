@@ -23,7 +23,7 @@ const apiCall = async (endpoint, options = {}) => {
 export const roomAPI = { // Room-specific API calls object
 
   createRoom: async (playerName) => { //a function stored on the roomAPI object
-    return apiCall('/create-room', {
+    return apiCall('/api/create-room', {
       method: 'POST',
       body: JSON.stringify({ playerName }),
     });
@@ -38,7 +38,7 @@ export const roomAPI = { // Room-specific API calls object
       cleanRoomId = parts[parts.length - 1];
     }
 
-    return apiCall('/join-room', {
+    return apiCall('/api/join-room', {
       method: 'POST',
       body: JSON.stringify({ 
         playerName, 
@@ -48,6 +48,6 @@ export const roomAPI = { // Room-specific API calls object
   },
 
   checkRoomExists: async (roomId) => {
-    return apiCall(`/room/${roomId}/exists`);
+    return apiCall(`/api/room/${roomId}/exists`);
   }
 };
